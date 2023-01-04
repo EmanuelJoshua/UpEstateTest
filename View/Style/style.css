@@ -1,0 +1,60 @@
+
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+
+.mt-5{
+
+    margin-top: 5%;
+
+}
+
+.mt-10{
+
+    margin-top: 10%;
+
+}
+
+.mt-15{
+
+    margin-top: 15%;
+
+}
+
+.mt-20{
+
+    margin-top: 20%;
+
+}
+
+.mt-25{
+
+    margin-top: 25%;
+
+}
+
+.enviar{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.botao-enviar{
+
+    border-radius: 1em;
+    size:20%;
+
+}
+
+.tabela_cad{
+
+    padding: 5% !important;
+
+}
+
+input.currency {
+    text-align: right;
+    padding-right: 15px;
+}
