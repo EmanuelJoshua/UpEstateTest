@@ -1,7 +1,5 @@
 <?php
 
-use PgSql\Connection;
-
 require_once('Imovel.php');
 require_once('Inquilino.php');
 require_once('dbh.inc.php');
@@ -19,7 +17,8 @@ class DatabaseQueries{
         }
         $conn->close();
     }
-    public static function deleteInquilino(Inquilino $inq){
+    //não tive tempo de implementar esta função no site
+    /*public static function deleteInquilino(Inquilino $inq){
         $inquilino = $inq;
         $conn = Conection::conection();
         $sql = "DELETE FROM Inquilinos WHERE id_pessoa = {$inquilino->getPessoaID()}";
@@ -29,7 +28,7 @@ class DatabaseQueries{
           echo "\nErro ao deletar o inquilino no banco de dados: " . $conn->error;
         }
         $conn->close();
-    }
+    }*/
     public static function insertImovel(Imovel $imo){
         $imovel = $imo;
         $conn = Conection::conection();
@@ -44,7 +43,8 @@ class DatabaseQueries{
         }
         $conn->close();
     }
-    public static function deleteImovel(Imovel $imo){
+     //não tive tempo de implementar esta função no site
+    /*public static function deleteImovel(Imovel $imo){
         $imovel = $imo;
         $conn = Conection::conection();
         $sql = "DELETE FROM Inquilinos WHERE id_pessoa = {$imovel->getImovelID()}";
@@ -54,7 +54,7 @@ class DatabaseQueries{
           echo  '<h3 style="display:flex; justify-content:center;margin-top:10%"><strong>Erro ao deletar o imóvel no banco de dados: '. $conn->error.'</strong></h3>';
         }
         $conn->close();
-    }
+    }*/
     public static function getImovelId($cep, $rua, $numero){
       $conn = Conection::conection();
       $sql = "SELECT * FROM Imoveis WHERE cep = {$cep} AND rua = '{$rua}' AND numero = {$numero};";
