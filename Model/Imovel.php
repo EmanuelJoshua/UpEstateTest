@@ -2,7 +2,7 @@
 class Imovel
 {
     // atributes
-        private $id = 0;
+        private $imovelID = 0;
         private $uf = '';
         private $cidade = '';
         private $bairro = '';
@@ -14,15 +14,18 @@ class Imovel
         private $nomeProprietario = '';
 
     // methods
-    public function __construct($uf, $cidade, $bairro, $rua, $numero, $complemento, $cep)
+    public function __construct( $cep, $uf, $cidade, $bairro, $rua, $numero, $complemento,
+    $nomeProprietario, $valorAluguel)
     {
-        $this->uf = $uf;
-        $this->cidade = $cidade;
-        $this->bairro = $bairro;
-        $this->rua = $rua;
-        $this->numero = $numero;
-        $this->complemento = $complemento;
-        $this->cep = $cep;
+         $this->cep = $cep;
+         $this->uf = $uf;
+         $this->cidade = $cidade;
+         $this->bairro = $bairro;
+         $this->rua = $rua;
+         $this->numero = $numero;
+         $this->complemento = $complemento;
+         $this->nomeProprietario = $nomeProprietario;
+         $this->valorAluguel = $valorAluguel;
     }
 
     //getters and setters
@@ -61,6 +64,10 @@ class Imovel
     public function getNomeProprietario()
     {
        return $this->nomeProprietario;
+    }
+    public function getImovelID()
+    {
+       return $this->imovelID;
     }
 }
 ?>

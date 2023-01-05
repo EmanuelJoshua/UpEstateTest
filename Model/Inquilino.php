@@ -1,8 +1,9 @@
-<?php
-include('Imovel.php');
+<?php 
+require_once('Imovel.php');
 class Inquilino
 {
     // atributes
+        private $pessoaID = '';
         private $nomeCompleto = '';
         private $cpf = '';
         private $telefone = '';
@@ -10,12 +11,13 @@ class Inquilino
         private $imovelID = 0;
 
     // methods
-        public function __construct($nomeCompleto, $cpf, $telefone, $dataNascimento)
+        public function __construct($imovelID, $nomeCompleto, $cpf, $telefone, $dataNascimento)
         {
             $this->nomeCompleto = $nomeCompleto;
             $this->cpf = $cpf;
             $this->telefone = $telefone;
             $this->dataNascimento = $dataNascimento;
+            $this->imovelID = $imovelID;
         }
 
     //getters and setters
@@ -34,6 +36,14 @@ class Inquilino
         public function getDataNascimento()
         {
         return $this->dataNascimento;
+        }
+        public function getPessoaID()
+        {
+        return $this->pessoaID;
+        }
+        public function getImovelID()
+        {
+        return $this->imovelID;
         }
 }
 ?>

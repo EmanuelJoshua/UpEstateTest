@@ -1,9 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "EmanuelJoshua";
-$password = "123456";
-$dbName = 'UpEstate';
+class Conection{
+    public static function conection(){
+        return mysqli_connect("localhost", "EmanuelJoshua", "123456", "UpEstate");
+    }
+}
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-?>

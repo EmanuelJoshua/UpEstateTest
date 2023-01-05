@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +35,7 @@
 <body>
 
     <!-- TAG PARA CRIAR O FORMULÁRIO -->
-    <form name="form" role="form">
-
-
+    <form action="../Controller/IndexController.php" method="post" name="form" role="form">
 
         <div class="titulo">
             <h3><strong>C A D A S T R O &nbsp;&nbsp; D E &nbsp;&nbsp; I M O V E I S &nbsp;&nbsp; E &nbsp;&nbsp; I N Q U I L I N O S</strong></h3>
@@ -53,7 +53,7 @@
 
                     <div class="col-md-3">
                         <label for="CEP_CAD"><h4>CEP</h4></label>
-                        <input class="form-control" type="text" required pattern="\d{5}-?\d{3}" placeholder="CEP" id="CEP_CAD" name="CEP_CAD"/>
+                        <input class="form-control" type="text" required onblur="retornaCEP()" placeholder="CEP" id="CEP_CAD" name="CEP_CAD"/>
                     </div>
 
                     <div class="col-md-4"></div>
@@ -66,12 +66,14 @@
 
                     <div class="col-md-3">
                         <label for="UF_CAD"><h4>Estado</h4></label>
-                        <input class="form-control" type="text" required placeholder="Estado" id="UF_CAD" name="UF_CAD"/>
+                        <select class="form-control" required placeholder="Estado" id="UF_CAD" name="UF_CAD">
+                        </select>
                     </div>
         
                     <div class="col-md-3">
                         <label for="CIDADE_CAD"><h4>Cidade</h4></label>
-                        <input class="form-control" type="text" required placeholder="Cidade" id="CIDADE_CAD" name="CIDADE_CAD"/>
+                        <select class="form-control" type="text" required placeholder="Cidade" id="CIDADE_CAD" name="CIDADE_CAD">
+                        </select>
                     </div>
         
                     <div class="col-md-3">
@@ -94,12 +96,12 @@
         
                     <div class="col-md-3">
                         <label for="NUMERO_CAD"><h4>Número</h4></label>
-                        <input class="form-control" type="text" required placeholder="Número" id="NUMERO_CAD" name="NUMERO_CAD"/>
+                        <input class="form-control" type="number" required onchange="validaNumero()" min="0" placeholder="Número" id="NUMERO_CAD" name="NUMERO_CAD"/>
                     </div>
         
                     <div class="col-md-3">
                         <label for="COMPLEMENTO_CAD"><h4>Complemento</h4></label>
-                        <input class="form-control" type="text" placeholder="Complemento" id="COMPLEMENTO_CAD" name="COMPLEMENTO_CAD"/>
+                        <input class="form-control" type="text" required placeholder="Complemento" id="COMPLEMENTO_CAD" name="COMPLEMENTO_CAD"/>
                     </div>
 
                     <div class="col-md-1"></div>
@@ -120,15 +122,15 @@
                 <div class="col-md-3"></div>
 
                 <div class="col-md-3">
-                    <label for="CEP_CAD"><h4>Nome proprietário</h4></label>
-                    <input class="form-control" type="text" required placeholder="Nome proprietário" id="CEP_CAD" name="CEP_CAD"/>
+                    <label for="NOME_PROP_CAD"><h4>Nome proprietário</h4></label>
+                    <input class="form-control" type="text" required placeholder="Nome proprietário" id="NOME_PROP_CAD" name="NOME_PROP_CAD"/>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="CEP_CAD"><h4>Valor Aluguel</h4></label>
+                    <label for="VALUE_CAD"><h4>Valor Aluguel</h4></label>
                     <div class="input-group"> 
                         <span class="input-group-addon">$</span>
-                        <input type="number" min="0" step="0.01" data-number-to-fixed="2" placeholder="Valor Aluguel" id="VALUE_CAD" name="VALUE_CAD" data-number-stepfactor="100" class="form-control currency" />
+                        <input type="number" min="0" step="0.01" required data-number-to-fixed="2" placeholder="Valor Aluguel" id="VALUE_CAD" name="VALUE_CAD" data-number-stepfactor="100" class="form-control currency" />
                     </div>
                 </div>
 
@@ -142,7 +144,9 @@
 
             <legend class="titulo mt-10">Inquilinos</legend>
 
-            <div class="col-md-12 row form-group tabela_cad">
+            <div class="col-md-12 row form-group tabela_cad">   
+
+                <input type="hidden" id="ARRAY_ID_INQ" name="ARRAY_ID_INQ" />
 
                 <table class="table table-striped col-md-10" id="TABLE_INQUILINOS_CAD">
                     <thead>
@@ -162,13 +166,12 @@
 
         </section>
 
-        <div class="col-md-12 row enviar form group">
+        <div class="col-md-12 row mb-20 enviar form group">
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" onsubmit="validaForm()">Enviar</button>
 
         </div>
 
     </form>
-
 </body>
 </html>
